@@ -60,15 +60,15 @@ After=zfs.target
 [Service]
 Environment=TZ=UTC
 Type=oneshot
-ExecStart=%{_sbindir}/sanoid --cron
+ExecStart=%{_sbindir}/sanoid --cron --verbose
 EOF
 
 cat > %{buildroot}%{_unitdir}/%{name}.timer <<EOF
 [Unit]
-Description=Run Sanoid Every Minute
+Description=Run Sanoid Every 15 Minutes
 
 [Timer]
-OnCalendar=*:0/1
+OnCalendar=*:0/15
 Persistent=true
 
 [Install]
@@ -111,13 +111,16 @@ echo "* * * * * root %{_sbindir}/sanoid --cron" > %{buildroot}%{_docdir}/%{name}
 %endif
 
 %changelog
-* Wed Nov 24 2020 Christoph Klaffl <christoph@phreaker.eu> - 2.1.0
+* Sat Apr 10 2021 Gordon Schulz <gordon@gordonschulz.de> - 2.1.0
+- Fix bogus dates
+- Change timer to 15 Minutes
+* Tue Nov 24 2020 Christoph Klaffl <christoph@phreaker.eu> - 2.1.0
 - Bump to 2.1.0
 * Wed Oct 02 2019 Christoph Klaffl <christoph@phreaker.eu> - 2.0.3
 - Bump to 2.0.3
 * Wed Sep 25 2019 Christoph Klaffl <christoph@phreaker.eu> - 2.0.2
 - Bump to 2.0.2
-* Wed Dec 04 2018 Christoph Klaffl <christoph@phreaker.eu> - 2.0.0
+* Tue Dec 04 2018 Christoph Klaffl <christoph@phreaker.eu> - 2.0.0
 - Bump to 2.0.0
 * Sat Apr 28 2018 Dominic Robinson <github@dcrdev.com> - 1.4.18-1
 - Bump to 1.4.18
