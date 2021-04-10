@@ -114,6 +114,7 @@ echo "* * * * * root %{_sbindir}/sanoid --cron" > %{buildroot}%{_docdir}/%{name}
 * Sat Apr 10 2021 Gordon Schulz <gordon@gordonschulz.de> - 2.1.0
 - Fix bogus dates
 - Change timer to 15 Minutes
+- Make output verbose
 * Tue Nov 24 2020 Christoph Klaffl <christoph@phreaker.eu> - 2.1.0
 - Bump to 2.1.0
 * Wed Oct 02 2019 Christoph Klaffl <christoph@phreaker.eu> - 2.0.3
