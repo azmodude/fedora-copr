@@ -2,7 +2,7 @@
 %define base_name i3
 
 Name:       i3-gaps
-Version:	4.20
+Version:	4.20.1
 Release:	0%{?dist}
 Summary:	i3 with more features
 License:	BSD
@@ -78,6 +78,9 @@ Please be aware that i3 is primarily targeted at advanced users and developers.
 %exclude %{_docdir}/%{base_name}/
 
 %changelog
+* Mon Nov 08 2021 Gordon Schulz <gordon@gordonschulz.de> - 4.20.1-0
+- Update to 4.20.1
+
 * Fri Oct 22 2021 Gordon Schulz <gordon@gordonschulz.de> - 4.20-0
 - Update to 4.20
 
