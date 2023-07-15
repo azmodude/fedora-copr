@@ -14,6 +14,8 @@ It is meant to be run periodically (daily), do the heavy lifting and send an ema
 
 Supports single and dual parity configurations. It is highly customizable and has been tested with Debian 10/11 and OpenMediaVault 5/6.
 
+%global debug_package %{nil}
+
 %prep
 %setup -q
 
