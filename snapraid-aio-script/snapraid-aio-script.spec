@@ -6,6 +6,7 @@ License:        GPLv3+
 Group:          Applications/System
 URL:            https://github.com/auanasgheps/snapraid-aio-script
 Source:         https://github.com/auanasgheps/snapraid-aio-script/archive/refs/tags/v%{version}.tar.gz
+BuildArch:      noarch
 
 %description
 The definitive all-in-one SnapRAID script. I hope you'll agree :).
