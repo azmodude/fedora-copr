@@ -1,4 +1,4 @@
-%global version 2.1.0
+%global version 2.2.0
 %global git_tag v%{version}
 
 # Enable with systemctl "enable sanoid.timer"
@@ -65,7 +65,7 @@ EOF
 
 cat > %{buildroot}%{_unitdir}/%{name}.timer <<EOF
 [Unit]
-Description=Run Sanoid Every 15 Minutes
+Description=Run Sanoid Every 15 minutes
 
 [Timer]
 OnCalendar=*:0/15
@@ -80,7 +80,7 @@ EOF
 %{__install} -D -m 0644 sanoid.conf %{buildroot}%{_docdir}/%{name}/examples/sanoid.conf
 %endif
 %if 0%{?rhel}
-echo "* * * * * root %{_sbindir}/sanoid --cron" > %{buildroot}%{_docdir}/%{name}-%{version}/examples/sanoid.cron
+echo "* * * * * root %{_sbindir}/sanoid --cron --verbose" > %{buildroot}%{_docdir}/%{name}-%{version}/examples/sanoid.cron
 %endif
 %endif
 
@@ -111,6 +111,20 @@ echo "* * * * * root %{_sbindir}/sanoid --cron" > %{buildroot}%{_docdir}/%{name}
 %endif
 
 %changelog
+* Wed Jul 19 2023 Gordon Schulz <gordon@gordonschulz.de> - 2.2.0
+- 2.2.0 [overall] documentation updates, small fixes (@azmodude, @deviantintegral, @jimsalterjrs, @alexhaydock, @cbreak-black, @kd8bny, @JavaScriptDude, @veeableful, @rsheasby, @Topslakr, @mavhc, @adam-stamand, @joelishness, @jsoref, @dodexahedron, @phreaker0)
+- [syncoid] implemented flag for preserving properties without the zfs -p flag (@phreaker0)
+- [syncoid] implemented target snapshot deletion (@mat813)
+- [syncoid] support bookmarks which are taken in the same second (@delxg, @phreaker0)
+- [syncoid] exit with an error if the specified src dataset doesn't exist (@phreaker0)
+- [syncoid] rollback is now done implicitly instead of explicit (@jimsalterjrs, @phreaker0)
+- [syncoid] append a rand int to the socket name to prevent collisions with parallel invocations (@Gryd3)
+- [syncoid] implemented support for ssh_config(5) files (@endreszabo)
+- [syncoid] snapshot hold/unhold support (@rbike)
+- [sanoid] handle duplicate key definitions gracefully (@phreaker0)
+- [syncoid] implemented removal of conflicting snapshots with force-delete option (@phreaker0)
+- [sanoid] implemented pre pruning script hook (@phreaker0)
+- [syncoid] implemented direct connection support (bypass ssh) for the actual data transfer (@phreaker0)
 * Sat Apr 10 2021 Gordon Schulz <gordon@gordonschulz.de> - 2.1.0
 - Fix bogus dates
 - Change timer to 15 Minutes
