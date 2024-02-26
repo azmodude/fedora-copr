@@ -42,7 +42,7 @@ strip --strip-all %{buildroot}%{_bindir}/*
 %files
 %license LICENSE
 %doc README.md
-%doc docs/docs
+%doc docs
 %{_bindir}/atuin
 %{_datadir}/bash-completion/completions/atuin
 %{_datadir}/fish/completions/atuin
